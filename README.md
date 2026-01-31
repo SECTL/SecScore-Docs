@@ -1,6 +1,6 @@
-# SecRandom 文档站
+# SecScore 文档站
 
-本仓库为 [SecRandom](https://github.com/SECTL/SecRandom) 文档仓库，使用 [vuepress](https://vuepress.vuejs.org/) 和 [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume) 构建
+本仓库为 [SecScore](https://github.com/SECTL/SecScore) 文档仓库，使用 [vuepress](https://vuepress.vuejs.org/) 和 [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume) 构建
 
 ## 安装依赖
 

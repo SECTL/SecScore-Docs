@@ -8,8 +8,8 @@ const isZh = computed(() => !route.path.startsWith('/en/'))
 
 const i18n = {
   zh: {
-    title: '下载 SecRandom',
-    subtitle: '让课堂点名更高效透明',
+    title: '下载 SecScore',
+    subtitle: '班级个人积分管理',
     loading: '正在获取最新版本信息...',
     errorTitle: '无法获取版本信息',
     errorDesc: '可能是由于网络原因无法连接到 GitHub API。',
@@ -17,16 +17,14 @@ const i18n = {
     retry: '重试',
     latest: '最新版本',
     released: '发布于',
-    download: '下载 Windows 版本',
+    download: '下载',
     noAssets: '当前平台暂无可用下载文件',
     source: '下载源:',
     other: '其他文件',
     changelog: '更新日志',
-    win10: '适用于 Windows 10 及以上版本 (x64)',
-    legacyWin7: 'Windows 旧版(支持 Windows 7)',
-    legacyWin32: 'Windows 旧版(x86)',
-    linux: '下载 Linux 版本 (amd64)',
-    win64: 'Windows (x64) 便携版',
+    win10: '适用于 Windows 10 及以上版本',
+    linux: 'Linux',
+    win64: 'Windows',
     portable: '.zip',
     setup: '安装包',
     moreDownloads: '更多下载',
@@ -36,14 +34,12 @@ const i18n = {
     ghfastDesc: '推荐国内用户使用',
     ghproxyDesc: '备用镜像源',
     githubDesc: '原始链接',
-    cloud123Desc: '不限速',
-    cloud123Btn: '123云盘 (推荐)',
     ghBtn: 'GitHub Releases',
     channel: '版本通道:',
     channels: {
-      release: '正式版 (Release)',
-      beta: '测试版 (Beta)',
-      alpha: '开发版 (Alpha)'
+      release: '正式版',
+      beta: '预发布版',
+      alpha: '全部'
     },
     speeds: {
       veryFast: '极快',
@@ -53,13 +49,12 @@ const i18n = {
     sourceNames: {
       ghfast: 'GitHub 镜像 (ghfast)',
       ghproxy: 'GitHub 镜像 (ghproxy)',
-      github: 'GitHub',
-      cloud123: '123云盘'
+      github: 'GitHub'
     }
   },
   en: {
-    title: 'Download SecRandom',
-    subtitle: 'Efficient and transparent classroom roll call',
+    title: 'Download SecScore',
+    subtitle: 'Classroom personal scoring manager',
     loading: 'Fetching latest release...',
     errorTitle: 'Failed to fetch release info',
     errorDesc: 'Unable to connect to GitHub API due to network issues.',
@@ -72,11 +67,9 @@ const i18n = {
     source: 'Mirror:',
     other: 'Other Assets',
     changelog: 'Changelog',
-    win10: 'For Windows 10 or later (x64)',
-    legacyWin7: 'Windows 7 x64 (Legacy)',
-    legacyWin32: '32-bit (Legacy)',
-    linux: 'Linux (amd64)',
-    win64: 'Windows (x64)',
+    win10: 'For Windows 10 or later',
+    linux: 'Linux',
+    win64: 'Windows',
     portable: 'Portable',
     setup: 'Installer',
     moreDownloads: 'More Downloads',
@@ -86,14 +79,12 @@ const i18n = {
     ghfastDesc: 'Recommended for China',
     ghproxyDesc: 'Alternative mirror',
     githubDesc: 'Original link',
-    cloud123Desc: 'Unlimited speed',
-    cloud123Btn: '123 Pan (Recommended)',
     ghBtn: 'GitHub Releases',
     channel: 'Channel:',
     channels: {
-      release: 'Release',
-      beta: 'Beta',
-      alpha: 'Alpha'
+      release: 'Stable',
+      beta: 'Pre-release',
+      alpha: 'All'
     },
     speeds: {
       veryFast: 'Very Fast',
@@ -103,8 +94,7 @@ const i18n = {
     sourceNames: {
       ghfast: 'GitHub Mirror (ghfast)',
       ghproxy: 'GitHub Mirror (ghproxy)',
-      github: 'GitHub Official',
-      cloud123: '123 Pan'
+      github: 'GitHub Official'
     }
   }
 }
@@ -135,8 +125,6 @@ interface ChannelType {
 }
 
 const allReleases = ref<any[]>([])
-const legacyRelease = ref<any>(null)
-const metadata = ref<{ release: string, beta: string, alpha: string } | null>(null)
 const isLoading = ref(true)
 const hasError = ref(false)
 const errorMessage = ref('')
@@ -178,7 +166,6 @@ const downloadSources = computed<DownloadSource[]>(() => [
   { id: 'ghfast', name: t.value.sourceNames.ghfast, icon: '/icon/github.svg', description: t.value.ghfastDesc, speed: t.value.speeds.veryFast },
   { id: 'ghproxy', name: t.value.sourceNames.ghproxy, icon: '/icon/github.svg', description: t.value.ghproxyDesc, speed: t.value.speeds.fast },
   { id: 'github', name: t.value.sourceNames.github, icon: '/icon/github.svg', description: t.value.githubDesc, speed: t.value.speeds.slow },
-  { id: 'cloud123', name: t.value.sourceNames.cloud123, icon: '/icon/123pan.png', description: t.value.cloud123Desc, speed: t.value.speeds.fast, contributor: { name: 'lzy98276', url: 'https://github.com/lzy98276' } }
 ])
 
 const channels = computed<ChannelType[]>(() => [
@@ -189,23 +176,10 @@ const channels = computed<ChannelType[]>(() => [
 
 const currentRelease = computed(() => {
   if (!allReleases.value.length) return null
-  
-  // 如果有元数据，尝试匹配所选通道的版本
-  if (metadata.value) {
-    const targetVersion = metadata.value[selectedChannel.value as 'release' | 'beta' | 'alpha']
-    if (targetVersion) {
-      const match = allReleases.value.find(r => r.tag_name === targetVersion)
-      if (match) return match
-    }
-  }
 
-  // 如果元数据缺失或未找到匹配项的后备逻辑
-  if (selectedChannel.value === 'release') {
-    return allReleases.value.find((r: any) => !r.prerelease && !r.draft)
-  } else {
-    // 对于 beta/alpha，如果未找到特定版本，则仅获取最新的一个（包括预发布版本）
-    return allReleases.value[0]
-  }
+  if (selectedChannel.value === 'release') return allReleases.value.find((r: any) => !r.prerelease && !r.draft)
+  if (selectedChannel.value === 'beta') return allReleases.value.find((r: any) => r.prerelease && !r.draft) || allReleases.value[0]
+  return allReleases.value.find((r: any) => !r.draft) || allReleases.value[0]
 })
 
 // 处理发布说明：移除图片，隐藏感谢说明
@@ -229,7 +203,7 @@ watch(currentRelease, async (newRelease) => {
     // 截断标记 (正则表达式)
     const cutOffPatterns = [
       /full\s+changelog:/i,
-      /💝\s*感谢所有贡献者为\s*SecRandom\s*项目付出的努力！/
+      /💝\s*感谢所有贡献者为\s*SecScore\s*项目付出的努力！/
     ]
     
     let cutOffIndex = -1
@@ -303,8 +277,6 @@ const getDownloadUrl = (asset: any) => {
       return `https://ghfast.top/${url}`
     case 'ghproxy':
       return `https://gh-proxy.com/${url}`
-    case 'cloud123':
-      return 'https://www.123684.com/s/9529jv-U4Fxh'
     default:
       return url
   }
@@ -345,9 +317,6 @@ const availableAssets = computed(() => {
     // 过滤掉非安装程序文件
     if (name.endsWith('.yml') || name.endsWith('.blockmap') || name.endsWith('.json')) return false
     
-    // 仅限 x64/amd64
-    if (!name.includes('x64') && !name.includes('win_x64') && !name.includes('amd64')) return false
-
     return true
   })
 
@@ -370,32 +339,6 @@ const primaryAsset = computed(() => {
   return availableAssets.value.find((a: any) => a.name.toLowerCase().endsWith('.exe')) || availableAssets.value[0]
 })
 
-const legacyAssets = computed(() => {
-  const win7Data = legacyRelease.value?.assets?.find((a: any) => a.name.includes('x64-dir.zip'))
-  const win32Data = legacyRelease.value?.assets?.find((a: any) => a.name.includes('x86-dir.zip'))
-
-  return [
-    {
-      id: 'legacy-win7',
-      name: 'SecRandom-Windows-v1.2.3.2-x64-dir.zip',
-      browser_download_url: win7Data?.browser_download_url || 'https://github.com/SECTL/SecRandom/releases/download/v1.2.3.2/SecRandom-Windows-v1.2.3.2-x64-dir.zip',
-      size: win7Data?.size || 0,
-      customLabel: t.value.legacyWin7,
-      version: 'v1.2.3.2',
-      isLegacy: true
-    },
-    {
-      id: 'legacy-win32',
-      name: 'SecRandom-Windows-v1.2.3.2-x86-dir.zip',
-      browser_download_url: win32Data?.browser_download_url || 'https://github.com/SECTL/SecRandom/releases/download/v1.2.3.2/SecRandom-Windows-v1.2.3.2-x86-dir.zip',
-      size: win32Data?.size || 0,
-      customLabel: t.value.legacyWin32,
-      version: 'v1.2.3.2',
-      isLegacy: true
-    }
-  ]
-})
-
 const moreAssets = computed(() => {
   let assets = []
   if (!primaryAsset.value) {
@@ -403,58 +346,16 @@ const moreAssets = computed(() => {
   } else {
     assets = availableAssets.value.filter((a: any) => a.name !== primaryAsset.value.name)
   }
-  return [...assets, ...legacyAssets.value]
+  return assets
 })
-
-const fetchMetadata = async () => {
-  try {
-    // 从 ghfast 镜像获取元数据
-    const response = await fetch('https://ghfast.top/https://raw.githubusercontent.com/SECTL/SecRandom/master/metadata.yaml')
-    if (response.ok) {
-      const text = await response.text()
-      // 对 "latest" 部分进行简单的正则解析
-      // 预期格式:
-      // latest: 
-      //    release: v2.2.6 
-      //    beta: v2.2.6 
-      //    alpha: v2.2.6 
-      
-      const releaseMatch = text.match(/release:\s*(v[\d.]+)/)
-      const betaMatch = text.match(/beta:\s*(v[\d.]+)/)
-      const alphaMatch = text.match(/alpha:\s*(v[\d.]+)/)
-      
-      if (releaseMatch || betaMatch || alphaMatch) {
-        metadata.value = {
-          release: releaseMatch ? releaseMatch[1] : '',
-          beta: betaMatch ? betaMatch[1] : '',
-          alpha: alphaMatch ? alphaMatch[1] : ''
-        }
-      }
-    }
-  } catch (e) {
-    console.error('Failed to fetch metadata:', e)
-  }
-}
-
-const fetchLegacyRelease = async () => {
-  try {
-    const response = await fetch('https://api.github.com/repos/SECTL/SecRandom/releases/tags/v1.2.3.2')
-    if (response.ok) {
-      legacyRelease.value = await response.json()
-    }
-  } catch (e) {
-    console.error('Failed to fetch legacy release:', e)
-  }
-}
 
 const fetchReleases = async () => {
   try {
     isLoading.value = true
-    const response = await fetch('https://api.github.com/repos/SECTL/SecRandom/releases')
+    const response = await fetch('https://api.github.com/repos/SECTL/SecScore/releases')
     if (!response.ok) throw new Error('Failed to fetch releases')
     
     allReleases.value = await response.json()
-    await fetchMetadata()
     
   } catch (e: any) {
     console.error('Fetch error:', e)
@@ -490,7 +391,6 @@ function handleClickOutside(e: MouseEvent) {
 
 onMounted(() => {
   fetchReleases()
-  fetchLegacyRelease()
   document.addEventListener('click', handleClickOutside)
 })
 
@@ -614,11 +514,7 @@ onBeforeUnmount(() => {
         <div class="fallback-options">
           <p>{{ t.fallback }}</p>
           <div class="fallback-buttons">
-            <a href="https://www.123684.com/s/9529jv-U4Fxh" target="_blank" class="fallback-btn cloud123">
-              <span class="btn-icon-sm">☁️</span> 
-              <span class="btn-text">{{ t.cloud123Btn }}</span>
-            </a>
-            <a href="https://github.com/SECTL/SecRandom/releases" target="_blank" class="fallback-btn github">
+            <a href="https://github.com/SECTL/SecScore/releases" target="_blank" class="fallback-btn github">
               <span class="btn-icon-sm">🐙</span>
               <span class="btn-text">{{ t.ghBtn }}</span>
             </a>

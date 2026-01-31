@@ -5,11 +5,11 @@ import { plumeTheme } from 'vuepress-theme-plume'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN', // 默认语言为中文，浏览器会自动检测用户语言
-  title: 'SecRandom',
-  description: '一个易用的点名/抽奖软件，专为教育场景设计，让课堂点名更高效透明！',
+  title: 'SecScore',
+  description: '一个简单易用，优雅美观的班级个人积分管理软件。',
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/SecScore.svg' }],
   ],
 
   bundler: viteBundler(),
@@ -18,22 +18,22 @@ export default defineUserConfig({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'SecRandom',
+      title: 'SecScore',
       description: '',
     },
     '/en/': {
       lang: 'en-US',
-      title: 'SecRandom',
+      title: 'SecScore',
       description: '',
     },
   },
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    hostname: 'https://secrandom.sectl.top/',
+    hostname: 'https://secscore.sectl.top/',
 
     /* 文档仓库配置，用于 editLink */
-    docsRepo: 'https://github.com/SECTL/SecRandom-docs',
+    docsRepo: 'https://github.com/SECTL/SecScore-Docs',
     docsDir: 'docs',
     docsBranch: 'main',
 
@@ -152,14 +152,7 @@ export default defineUserConfig({
      */
     comment: {
       provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-      comment: true,
-      repo: 'SECTL/SecRandom-docs',
-      repoId: 'R_kgDOPRYlZg',
-      category: 'General',
-      categoryId: 'DIC_kwDOPRYlZs4CvPMD',
-      mapping: 'pathname',
-      reactionsEnabled: true,
-      inputPosition: 'top',
+      comment: false,
     },
 
     /**

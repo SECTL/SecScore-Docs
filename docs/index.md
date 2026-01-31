@@ -4,15 +4,15 @@ config:
   - type: doc-hero
     background: tint-plate
     hero:
-      name: SecRandom
-      text: 助力每一节课堂教学
-      tagline: 一个易用的点名/抽奖软件，专为教育场景设计，让课堂点名更高效透明！
-      image: /logo.png
+      name: SecScore
+      text: 班级个人积分管理
+      tagline: 一个简单易用，优雅美观的班级个人积分管理软件。
+      image: /SecScore.svg
       actions:
         - theme: brand
           text: 下载
           icon: lucide:download
-          link: /download
+          link: https://stk.sectl.top/SecScore
         - theme: brand
           text: 阅读文档
           icon: lucide:list-start
@@ -20,7 +20,7 @@ config:
         - theme: alt
           text: Github 仓库
           icon: fa-brands:github
-          link: https://github.com/SECTL/SecRandom
+          link: https://github.com/SECTL/SecScore
         - theme: alt
           text: SECTL 网站
           icon: {
@@ -30,40 +30,28 @@ config:
           
   - type: features
     features:
-      - title: 灵活抽选
+      - title: 学生管理
         icon: lucide:users
-        details: 点名(单人&多人&小组&性别)/抽奖(可显示学生&小组)，全场景覆盖
-      - title: 公平核心
-        icon: lucide:scale
-        details: 动态权重+概率可视化，公平看得见
-      - title: 多名单设计
-        icon: lucide:clipboard-list
-        details: 一份程序管理多名单，操作更简便
-      - title: 浮窗闪抽
-        icon: lucide:mouse-pointer-2
-        details: 浮窗一点，随时抽取，教学不中断
-      - title: 语音播报
-        icon: lucide:volume-2
-        details: 语音清晰播报，全班即时知晓
-      - title: 主题自定义
-        icon: lucide:palette
-        details: 支持自定义主题，满足不同用户需求
-      - title: IPC/URL 集成
-        icon: lucide:link
-        details: 支持 IPC/URL 调用，与其他软件无缝集成
-      - title: 开机即用
-        icon: lucide:power
-        details: 开机自启后台待命，抢回课堂时间
-      - title: 密码功能
+        details: 添加/删除学生，支持 xlsx 批量导入名单（可预览并选择姓名列）
+      - title: 加分与扣分
+        icon: lucide:plus-minus
+        details: 选择学生提交加/扣分，支持“预设理由”一键填充理由与分值
+      - title: 撤销回滚
+        icon: lucide:undo-2
+        details: 可撤销最近的积分记录，撤销后学生积分自动回滚
+      - title: 理由管理
+        icon: lucide:tags
+        details: 维护预设理由（分类、理由内容、预设分值），提升录入效率
+      - title: 排行榜与导出
+        icon: lucide:trophy
+        details: 按 今天/本周/本月 查看积分变化，支持导出排行榜为 XLSX
+      - title: 结算与历史
+        icon: lucide:history
+        details: 结算并重新开始：归档阶段并清零积分，在结算历史中查看阶段排行
+      - title: 数据备份
+        icon: lucide:database-backup
+        details: 支持导入/导出 JSON（导入会覆盖数据；安全设置不会随导入写入）
+      - title: 权限保护
         icon: lucide:lock
-        details: 支持密码/TOTP/U盘解锁，防止学生乱玩
-      - title: 记录可控
-        icon: lucide:file-text
-        details: 完整的历史记录，所有数据均可随时调取
-      - title: 现代美观
-        icon: lucide:sparkles
-        details: 仿Win11 Fluent Design，简洁大气
-      - title: 联动 ClassIsland 等软件
-        icon: mdi:vector-combine
-        details: 与 ClassIsland 等软件联动，实现更方便的点名结果显示/更多联动
+        details: 支持管理密码/积分密码与找回字符串，保护关键操作
 ---

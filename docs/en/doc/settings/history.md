@@ -1,81 +1,52 @@
 ---
-title: History
+title: Settlement & History
 createTime: 2026/01/17 22:40:45
 ---
 
-> **Manage your history records**
->
-> Through flexible history management settings, you can control the saving and viewing of roll call and lottery history records. All settings are saved in real-time and take effect automatically.
+> Settlement archives the current scoring phase, then starts a new phase.
 
-## History Management
+## What is settlement
 
-### Roll Call History
+Settlement is a phase checkpoint:
 
-**Enable Roll Call History**: Control whether to enable the roll call history function
-- On: Save roll call history records
-- Off: Do not save roll call history records
+- Archive the current phase as a historical phase
+- Keep a leaderboard snapshot for that phase
+- Reset all students' current points to 0 to start the next phase
+- Keep your roster and reason presets unchanged
 
-**Select Class**: Select the class to view history records
-- Support selecting different classes to view corresponding roll call history records
+## When to settle
 
-**Clear Roll Call History**: Clear roll call history records for the selected class
-- Click the "Clear" button to delete all roll call history records for the selected class
+Typical scenarios:
 
-### Lottery History
+- Weekly/monthly settlement for periodic reporting
+- Settlement after an exam or class activity
+- Start fresh scoring while keeping the previous phase results
 
-**Enable Lottery History**: Control whether to enable the lottery history function
-- On: Save lottery history records
-- Off: Do not save lottery history records
+## Before you settle
 
-**Select Prize Pool**: Select the prize pool to view history records
-- Support selecting different prize pools to view corresponding lottery history records
+- Make sure you are in Admin permission mode (settlement is typically restricted)
+- Export a JSON backup first in case you need to revert: see [Import & Export](./other.md)
 
-**Clear Lottery History**: Clear lottery history records for the selected prize pool
-- Click the "Clear" button to delete all lottery history records for the selected prize pool
+## What data changes
 
-## Roll Call History Table
+- Changes:
+  - Current points are reset to 0
+  - Current phase records are marked as archived and excluded from the new phase statistics
+- Does not change:
+  - Student roster
+  - Reason presets
+  - Archived phases and their results
 
-**Select Class**: Select the class to view history records
-- Support selecting different classes to view corresponding roll call history table
+## Using settlement history
 
-**View Mode**: Select the viewing method for history records
-- All Records: Display all roll call history records
-- View by Time: Sort history records by time
-- View by Student: View history records for the selected student
+After settlement, you can use “Settlement History” to:
 
-### Roll Call History Table
+- View the leaderboard of each phase
+- Compare performance across phases
+- Review the final state of a phase
 
-| Field | Description |
-|--------|-------------|
-| **Student ID** | Student's ID information |
-| **Name** | Student's name information |
-| **Roll Call Count** | Total number of times the student was called |
-| **Weight** | Student's weight value in roll call |
+## FAQ
 
-## Lottery History Table
+### Can I restore to pre-settlement state
 
-**Select Prize Pool**: Select the prize pool to view history records
-- Support selecting different prize pools to view corresponding lottery history table
-
-**View Mode**: Select the viewing method for history records
-- All Records: Display all lottery history records
-- View by Time: Sort history records by time
-- All Courses: Display lottery history records for all courses
-- View by Course: View history records generated within the selected course
-
-### Lottery History Table
-
-| Field | Description |
-|--------|-------------|
-| **Serial Number** | Serial number of the lottery item |
-| **Name** | Name of the lottery item |
-| **Win Count** | Total number of times the item won |
-| **Weight** | Item's weight value in lottery |
-
-:::tip
-History management recommendations:
-1. Enable or disable history functions according to actual needs
-2. Regularly backup important history data
-3. Use history tables to analyze student participation
-4. Adjust weight settings based on history records to improve fairness
-:::
+If you need to revert, import the JSON backup exported before settlement: see [Import & Export](./other.md).

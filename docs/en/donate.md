@@ -7,7 +7,7 @@ title: Donate
   <h1>Donate</h1>
 </div>
 <div class="donate-container">
-  <p>Your donation helps us continue developing and improving SecRandom.</p>
+  <p>Your donation helps us continue developing and improving SecScore.</p>
 
   <a href="https://afdian.com/a/lzy0983" target="_blank" class="donate-btn">
     <button class="afdian-button">💝 Donate on Afdian</button>

@@ -12,25 +12,26 @@ const Doc = defineCollection({
   meta: { createTime: "long" },
   sidebar: [
     { text: '概览', icon: 'material-symbols:overview-outline-rounded', link: 'overview' },
-    { text: '指南', icon: 'ep:guide', prefix: 'guide', items: [
-      { text: '下载与运行', link: 'start' },
-      { text: '软件引导流程', link: 'software-guide' },
-      { text: '界面介绍', link: 'interface' },
+    { text: '快速开始', icon: 'ep:guide', prefix: 'guide', items: [
+      { text: '安装与运行', link: 'start' },
+      { text: '权限与解锁', link: 'software-guide' },
+      { text: '界面与导航', link: 'interface' },
     ] },
-    { text: '设置', icon: 'garden:gear-stroke-16', prefix: 'settings', items: [
-      { text: '基本设置', link: 'basic' },
-      { text: '名单管理', link: 'listmg' },
-      { text: '抽取设置', link: 'pick' },
-      { text: '安全设置', link: 'security' },
-      { text: '通知设置', link: 'notification' },
-      { text: '语音设置', link: 'voice' },
-      { text: '历史记录', link: 'history' },
-      { text: 'IPC & URL 协议', link: 'ipc_url' },
-      { text: '联动设置', link: 'link' },
-      { text: '其他设置', link: 'other' },
+    { text: '功能模块', icon: 'lucide:blocks', prefix: 'settings', items: [
+      { text: '学生管理', link: 'listmg' },
+      { text: '积分管理', link: 'pick' },
+      { text: '理由管理', link: 'link' },
+      { text: '排行榜', link: 'notification' },
+      { text: '结算与历史', link: 'history' },
+    ] },
+    { text: '系统与数据', icon: 'garden:gear-stroke-16', prefix: 'settings', items: [
+      { text: '系统设置', link: 'basic' },
+      { text: '安全与权限', link: 'security' },
+      { text: '数据导入导出', link: 'other' },
+      { text: '自定义 URL 协议', link: 'ipc_url' },
     ] },
     { text: '资源', icon: 'carbon:document', prefix: 'resources', items: [
-      { text: '贡献指南', link: 'contribute' },
+      { text: '开发与贡献', link: 'contribute' },
     ] },
   ],
 });
@@ -70,22 +71,23 @@ const EnDoc = defineCollection({
   meta: { createTime: "long" },
   sidebar: [
     { text: 'Overview', icon: 'material-symbols:overview-outline-rounded', link: 'overview' },
-    { text: 'Guide', icon: 'ep:guide', prefix: 'guide', items: [
-      { text: 'Download & Run', link: 'start' },
-      { text: 'Software Guide', link: 'software-guide' },
-      { text: 'Interface', link: 'interface' },
+    { text: 'Quick Start', icon: 'ep:guide', prefix: 'guide', items: [
+      { text: 'Install & Run', link: 'start' },
+      { text: 'Permissions', link: 'software-guide' },
+      { text: 'UI & Navigation', link: 'interface' },
     ] },
-    { text: 'Settings', icon: 'garden:gear-stroke-16', prefix: 'settings', items: [
-      { text: 'Basic Settings', link: 'basic' },
-      { text: 'List Management', link: 'listmg' },
-      { text: 'Extraction Settings', link: 'pick' },
-      { text: 'Security Settings', link: 'security' },
-      { text: 'Notification Settings', link: 'notification' },
-      { text: 'Voice Settings', link: 'voice' },
-      { text: 'History', link: 'history' },
-      { text: 'IPC & URL Protocol', link: 'ipc_url' },
-      { text: 'Link Settings', link: 'link' },
-      { text: 'Other Settings', link: 'other' },
+    { text: 'Modules', icon: 'lucide:blocks', prefix: 'settings', items: [
+      { text: 'Students', link: 'listmg' },
+      { text: 'Scoring', link: 'pick' },
+      { text: 'Reasons', link: 'link' },
+      { text: 'Leaderboard', link: 'notification' },
+      { text: 'Settlement', link: 'history' },
+    ] },
+    { text: 'System & Data', icon: 'garden:gear-stroke-16', prefix: 'settings', items: [
+      { text: 'Settings', link: 'basic' },
+      { text: 'Security', link: 'security' },
+      { text: 'Import & Export', link: 'other' },
+      { text: 'URL Protocol', link: 'ipc_url' },
     ] },
     { text: 'Resources', icon: 'carbon:document', prefix: 'resources', items: [
       { text: 'Contribute', link: 'contribute' },

@@ -34,7 +34,7 @@ To solve your problems more efficiently, please follow the suggestions below bef
 
 > ❌ **Wrong Example**: "What should I do if the software won't open?" (no information)
 >
-> ✅ **Correct Example**: "I am using SecRandom v2.2.0 on Windows 11, and it doesn't respond after clicking launch. Here is my error log screenshot..."
+> ✅ **Correct Example**: "I am using SecScore v1.0.0 on Windows 11, and it doesn't respond after clicking launch. Here is my error log screenshot..."
 
 ## ⚖️ Violation Handling
 

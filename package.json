@@ -1,8 +1,8 @@
 {
-  "name": "secrandom",
+  "name": "secscore-docs",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "SecScore 文档站",
   "packageManager": "pnpm@10.28.2",
   "pnpm": {
     "onlyBuiltDependencies": [
