@@ -74,7 +74,7 @@ pageLayout: page
             <img src="/avatar/lrs2187.jpg" alt="lrs2187" width="80" />
             <div class="text-content">
                 <p class="name">lrs2187</p>
-                <p class="role">ClassIsland integration and plugin development</p>
+                <p class="role">App integration and plugin development</p>
             </div>
         </div>
     </LinkCard>

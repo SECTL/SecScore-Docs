@@ -3,71 +3,41 @@ title: Security Settings
 createTime: 2026/01/11 12:42:47
 ---
 
-> **Protect your system security**
+> **Protect key operations with permissions and passwords**
 >
-> Through flexible security configuration, protect your system from unauthorized access. All settings are saved in real-time and take effect automatically.
+> SecScore uses “permission status + passwords” to protect student management, reason presets, settlement, and data import/export, preventing mistakes or unauthorized modifications.
 
-## Verification Method
+## Permissions & Passwords
 
-**Security Switch**: After enabling, all security operations require password verification
-- On: Selected security operations all require password verification
-- Off: Entering settings and other security operations do not require password verification
+Common permission statuses:
 
-**Set/Change Password**: Set or change security verification password
-- Click button to enter password setting interface
-- Recommended to use strong password containing letters, numbers, and special characters
+- Admin: full access (students, reasons, settlement, data management, etc.)
+- Scoring: only scoring-related operations (add/subtract, undo, etc.)
+- Read-only: view leaderboard and history only
 
-**TOTP Verification**: After enabling, TOTP verification can be used in security operations
-- On: Support using TOTP as verification method
-- Off: Do not use TOTP verification function
+Depending on the app version, passwords may be split into:
 
-**Set TOTP**: Configure TOTP dynamic password verification (i.e., 2FA verification)
-- Click button to enter TOTP key setting interface
+- Admin password: unlock to Admin
+- Scoring password: unlock to Scoring
 
-**USB Drive Verification**: After enabling, USB drive verification can be used in security operations
-- On: Support using USB drive as verification method
-- Off: Do not use USB drive verification function
+## Unlock & Lock
 
-**Bind USB Drive**: Bind the USB drive device used for verification
-- Insert USB drive and click button to complete binding
-- After binding, the USB drive can be used as verification credential
+- The top-right corner shows your current permission status
+- If you are in Read-only/Scoring, click “Enter password” to unlock to a higher level
+- Click “Lock” to switch back to Read-only
+- If no password is configured, the app is usually treated as Admin by default
 
-**Unbind USB Drive**: Unbind USB drive device
-- Click button to unbind the bound USB drive
-- After unbinding, the USB drive is no longer used as verification credential
+## Recovery String
 
-## Security Verification Steps
+After enabling passwords, the app provides a recovery string / recovery info for restoring access if you forget the password:
 
-**Security Verification Steps**: Select security verification combination method
-- Single-step verification (choose any one method): Select one from available verification methods to complete verification
-- Only password/Only TOTP/Only USB drive: Only need to perform the selected verification method to complete verification
-- Multi-step verification (combination verification method): Need to complete multiple verification methods
+- Save it immediately after setting a password
+- If it’s lost, password recovery becomes difficult
 
-## Security Operations
+## Recommended Setup
 
-**Settings Preview Switch**: Allow previewing settings when entering settings verification
-:::tip
-To use preview function, must first enable `Security Switch` and `Open Settings Verification` security operations.
-:::
-- On: Can preview settings content before verification, can modify settings after verification
-- Off: Do not enable preview function
+- Use a strong Admin password to protect structural operations
+- If multiple people score together, set a separate Scoring password to reduce risk
+- Export a JSON backup before importing or settling: see [Data Import & Export](./other.md)
 
-**Show/Hide Floating Window Verification**: After enabling, security verification is required when showing or hiding floating window
-- On: Show/hide floating window operations require verification
-- Off: Show/hide floating window operations do not require verification
-
-**Restart/Exit Verification**: After enabling, security verification is required when exiting software
-- On: Restart/exit software requires security verification
-- Off: Restart/exit software does not require verification
-
-**Open Settings Verification**: After enabling, security verification is required when opening settings window
-- On: Opening settings window requires security verification
-- Off: Opening settings window does not require verification
-
-:::tip
-Security settings recommendations:
-1. Enable security switch to enhance system security
-2. Set strong password and change regularly
-3. Enable USB drive/TOTP verification as double protection according to needs
-4. Enable verification for important operations (such as exiting software, opening settings)
-:::
+For more details, see [Permissions & Unlock](../guide/software-guide.md).

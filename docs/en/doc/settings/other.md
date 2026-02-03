@@ -1,53 +1,36 @@
 ---
-title: Other Settings
+title: Data Import & Export
 createTime: 2026/01/17 22:59:36
 ---
 
-> **Other function settings**
+> **Backup, migrate, and restore your data**
 >
-> Through flexible shortcut key and update settings, improve your usage efficiency. All settings are saved in real-time and take effect automatically.
+> Use import/export to back up data and move it across devices. It’s strongly recommended to export a JSON backup regularly to avoid data loss caused by mistakes or device failure.
 
-## Shortcut Key Settings
+## Export JSON (Backup)
 
-**Enable Shortcut Keys**: After enabling, you can use shortcut keys for quick operations
-:::tip
-Shortcut keys are all global shortcut keys and can be triggered on any page
-:::
-- On: Enable shortcut key function
-- Off: Disable shortcut key function
+- Recommended times to export a backup:
+  - Before/after large scoring sessions
+  - After adjusting many reason presets
+  - Before settlement
+  - Before switching computers or reinstalling the system
+- The exported file can restore the data to the time it was exported
 
-### Shortcut Key Settings
+## Import JSON (Restore/Migrate)
 
-Set shortcut keys for opening functions
+Import is used to restore a backup or migrate to another device. Please note:
 
-:::warning
-- Shortcut key settings should avoid conflicts with other software to prevent accidental operations
-:::
+- Import overwrites existing data (students, reasons, scoring records, settlement history, etc.)
+- Export your current data before importing to avoid irreversible overwrites
+- Security-related settings (e.g., passwords) are usually not imported (depending on the app version)
 
-## Update Settings
+## Settlement & Data
 
-**Force Check for Updates**: Force the application to update to the latest version on the current channel, even if this version is older than the application's current version.
+- Settlement archives a phase and resets current points: see [Settlement](./history.md)
+- Export a JSON backup before settlement so you can roll back after mistakes
 
-**Automatically Check for Updates and Install**: Set the automatic update mode of the application
-- Never automatically update: Do not automatically check for updates at all
-- Automatically check for updates and notify: Automatically check for updates and notify users when there is a new version
-- Automatically check for updates and download: Automatically check for updates and download, but do not automatically install
-- Automatically download and install updates: Automatically check, download, and install updates
+## Recommended Workflow
 
-**Update Channel Selection**: Select the software update release channel
-- Stable Channel: Get fully tested stable versions
-- Release Preview Channel: Preview features in the next major version in advance, containing newer features and improvements, may have minor defects
-- Test Channel: Receive the latest test version updates of the application, containing the latest features and improvements, may contain defects and unfinished features
-
-**Update Source Selection**: Select the software update download source
-- Auto-detect latency: Automatically detect update source latency and select the fastest update source to download updates
-- github: Download updates from GitHub, slower access in China
-- ghfast/ghproxy: Download updates from ghfast/ghproxy, faster speed
-
-:::tip
-Other settings recommendations:
-1. Set shortcut keys for commonly used functions according to personal usage habits
-2. Regularly check for software updates to get the latest features and security fixes
-3. Choose the appropriate update channel according to stability needs
-4. Choose an update source with better network conditions to improve update speed
-:::
+1. Export JSON weekly or at the end of each phase
+2. Export JSON before settlement, then settle the phase
+3. When restoring, confirm the target device/class data first, then import

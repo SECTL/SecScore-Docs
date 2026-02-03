@@ -1,20 +1,30 @@
 ---
-title: Link Settings
+title: Reasons
 createTime: 2026/01/17 21:52:27
 ---
 
-> **External Links & Integrations**
+> **Maintain common scoring reasons**
 >
-> SecScore currently focuses on a local workflow: roster → scoring → leaderboard → settlement. Schedule integration and external triggers may be added in future versions.
+> Reasons are presets that combine category, note, and default points. In scoring, you can pick a preset to fill inputs instantly and keep rules consistent.
 
-## Current Scope
+## What a Reason Preset Contains
 
-- In-app navigation between roster/scoring/leaderboard/history
-- Data migration and backup via JSON import/export
+- **Category**: Homework, Discipline, Participation, Rewards, etc.
+- **Reason / Note**: e.g. “Homework submitted on time”, “Late arrival”
+- **Default points**: e.g. +1, +2, -1, -2
 
-## Planned Directions (Not Guaranteed)
+## Create & Manage
 
-- Schedule-based switching (auto select class/stage by timetable)
-- External notifications and integrations with teaching tools
+- **Add**: choose category, enter note, set default points
+- **Edit**: adjust when your classroom rules change
+- **Delete**: deleting a preset does not modify historical records, but it can’t be used for quick fill anymore
 
-If you need integration features, please describe your scenario via [GitHub Issues](https://github.com/SECTL/SecScore/issues).
+## Works With Scoring
+
+- In [Scoring](./pick.md), selecting a preset fills the note and points automatically
+- You can still adjust the note or points for edge cases
+
+## Tips
+
+- Start with 10–20 common presets, then expand as needed
+- Keep categories simple so you can find them quickly during class
