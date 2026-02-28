@@ -5,8 +5,8 @@ createTime: 2025/11/23 19:46:59
 
 ## 下载
 
-- 下载地址：https://stk.sectl.top/SecScore
-- GitHub Releases：https://github.com/SECTL/SecScore/releases
+- [本站（推荐）](https://stk.sectl.top/SecScore)
+- [GitHub Releases](https://github.com/SECTL/SecScore/releases)
 
 ## 安装与启动
 
