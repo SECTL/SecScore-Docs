@@ -64,4 +64,20 @@ config:
       - title: Permissions
         icon: lucide:lock
         details: Admin/scoring passwords with recovery string support
+  - type: image-text
+    title: Home Screen
+    description: The home screen brings common actions and key class status together for quick in-class operations.
+    image: /images/home/software-home.png
+    width: 560
+    list:
+      - Core actions are grouped for faster daily workflow
+      - Key class status is visible at a glance
+  - type: text-image
+    title: Dashboard Demo
+    description: Dashboards support multi-board configuration and SQL queries for flexible classroom analytics.
+    image: /images/home/dashboard-demo.png
+    width: 560
+    list:
+      - Multiple boards for different classroom views
+      - SQL-powered data display for flexible analysis
 ---

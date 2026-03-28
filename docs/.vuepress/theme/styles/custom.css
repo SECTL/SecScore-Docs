@@ -104,6 +104,15 @@
   transform: translateY(-5px);
 }
 
+/* home screenshots */
+.vp-home-text-image .content-image .vp-image {
+  border-radius: 18px;
+  box-shadow:
+    0 14px 30px rgba(19, 122, 211, 0.24),
+    0 3px 10px rgba(68, 132, 188, 0.28);
+  border: 1px solid rgba(68, 132, 188, 0.25);
+}
+
 /* doc */
 .content-container {
   margin: 0 !important;

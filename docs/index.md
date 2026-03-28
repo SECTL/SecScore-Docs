@@ -66,4 +66,20 @@ config:
       - title: 权限保护
         icon: lucide:lock
         details: 支持管理密码/积分密码与找回字符串，保护关键操作
+  - type: image-text
+    title: 软件首页
+    description: 首页聚合了常用操作入口与核心数据状态，适合课堂场景快速点名和加扣分。
+    image: /images/home/software-home.png
+    width: 560
+    list:
+      - 聚合常用入口，课堂中可快速完成主要操作
+      - 一屏查看班级关键信息，减少切换成本
+  - type: text-image
+    title: 看板演示
+    description: 看板支持多面板配置与 SQL 查询，可按班级实际需求快速搭建数据视图。
+    image: /images/home/dashboard-demo.png
+    width: 560
+    list:
+      - 多看板配置，适配不同教学场景
+      - SQL 查询驱动，灵活展示班级统计结果
 ---
