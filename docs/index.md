@@ -30,11 +30,23 @@ config:
           
   - type: features
     features:
+      - title: 自动加分
+        icon: lucide:bot
+        details: 支持规则化自动加分流程，可启用/停用与排序规则，减少重复手工操作
+      - title: 数据看板
+        icon: lucide:layout-dashboard
+        details: 内置看板功能，支持配置多看板并执行 SQL，快速生成班级数据视图
+      - title: PG 数据同步
+        icon: lucide:database-zap
+        details: 支持连接 PostgreSQL，并提供同步预检查与应用同步，便于多端数据协同
+      - title: MCP 集成
+        icon: lucide:plug-zap
+        details: 内置 MCP HTTP 服务，可由外部 MCP 客户端调用 add_score 与 list_students
       - title: 学生管理
         icon: lucide:users
         details: 添加/删除学生，支持 xlsx 批量导入名单（可预览并选择姓名列）
       - title: 加分与扣分
-        icon: lucide:plus-minus
+        icon: lucide:plus
         details: 选择学生提交加/扣分，支持“预设理由”一键填充理由与分值
       - title: 撤销回滚
         icon: lucide:undo-2
@@ -54,4 +66,20 @@ config:
       - title: 权限保护
         icon: lucide:lock
         details: 支持管理密码/积分密码与找回字符串，保护关键操作
+  - type: image-text
+    title: 软件首页
+    description: 首页聚合了常用操作入口与核心数据状态，适合课堂场景快速点名和加扣分。
+    image: /images/home/software-home.png
+    width: 560
+    list:
+      - 聚合常用入口，课堂中可快速完成主要操作
+      - 一屏查看班级关键信息，减少切换成本
+  - type: text-image
+    title: 看板演示
+    description: 看板支持多面板配置与 SQL 查询，可按班级实际需求快速搭建数据视图。
+    image: /images/home/dashboard-demo.png
+    width: 560
+    list:
+      - 多看板配置，适配不同教学场景
+      - SQL 查询驱动，灵活展示班级统计结果
 ---
