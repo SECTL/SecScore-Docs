@@ -186,7 +186,7 @@ start "" "secscore://leaderboard"
 
 > This section targets packaged installers. In dev mode (`pnpm dev`), the protocol may not be registered automatically.
 
-- The registration config is in `electron-builder.yml`:
+- The registration config is in `tauri.conf.json`:
   - `scheme`: `secscore`
   - `name`: `SecScore URL Protocol`
 - After installation, the OS will dispatch `secscore://` URLs to SecScore.

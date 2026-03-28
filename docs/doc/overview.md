@@ -5,7 +5,7 @@ createTime: 2025/11/25 14:24:16
 
 # SecScore
 
-SecScore 是一款教育积分管理软件，基于 Electron + React + TypeScript 开发，用于管理学生名单、记录加/扣分、查看排行榜与结算历史，并提供权限保护与数据备份。
+SecScore 是一款教育积分管理软件，基于 Tauri + React + TypeScript 开发，用于管理学生名单、记录加/扣分、查看排行榜与结算历史，并提供权限保护与数据备份。
 
 ## 主要功能
 

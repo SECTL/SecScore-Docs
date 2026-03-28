@@ -194,7 +194,7 @@ start "" "secscore://leaderboard"
 
 > 下述内容针对打包后的安装版本，开发模式（`pnpm dev`）下可能不会自动注册协议。
 
-- 协议注册配置位于 `electron-builder.yml`：
+- 协议注册配置位于 `tauri.conf.json`：
   - `scheme`: `secscore`
   - `name`: `SecScore URL Protocol`
 - 在安装完成后，操作系统会把所有 `secscore://` URL 交给 SecScore 处理。
