@@ -12,6 +12,7 @@ SecScore is a classroom scoring manager for day-to-day student point tracking. I
 - Student roster management (including xlsx import with preview and name column selection)
 - Scoring with reason presets and quick fill
 - Undo the latest record and rollback points
+- Boards with multi-board config, SQL queries, and split layouts
 - Leaderboards (today / week / month) and XLSX export
 - Settlement & stage history (archive + reset)
 - Permissions and passwords (Admin / Score / Read-only)
@@ -22,5 +23,6 @@ SecScore is a classroom scoring manager for day-to-day student point tracking. I
 1. Download from https://stk.sectl.top/SecScore or [GitHub Releases](https://github.com/SECTL/SecScore/releases)
 2. Import your student roster in List Management
 3. Create a few common reason presets
-4. Start scoring, review leaderboard, and export when needed
-5. Settle at the end of a stage and keep JSON backups regularly
+4. Build a custom view in [Boards](./settings/board.md) when SQL-based analytics are needed
+5. Start scoring, review leaderboard, and export when needed
+6. Settle at the end of a stage and keep JSON backups regularly
