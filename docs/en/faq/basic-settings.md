@@ -30,9 +30,4 @@ createTime: 2026/01/25 09:32:05
 - Delete unnecessary old backup files
 - Uncheck unnecessary data types during manual backup
 
-### Q5: What should I do if URL protocol registration fails?
 
-**A**:
-- Ensure the software is running with administrator privileges
-- Check if other programs are using the same URL protocol
-- Try manually registering the URL protocol

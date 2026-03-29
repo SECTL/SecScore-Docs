@@ -18,6 +18,12 @@ SecScore is a classroom scoring manager for day-to-day student point tracking. I
 - Permissions and passwords (Admin / Score / Read-only)
 - Data backup via JSON import/export and logs for troubleshooting
 
+## Permission Model
+
+- **Admin**: Full access to student management, reason management, settlement, data management, etc.
+- **Score**: Only allowed to perform scoring-related operations
+- **Read-only**: View only, no modifications allowed
+
 ## Quick Start
 
 1. Download from https://stk.sectl.top/SecScore or [GitHub Releases](https://github.com/SECTL/SecScore/releases)

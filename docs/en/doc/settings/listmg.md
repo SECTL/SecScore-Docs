@@ -13,6 +13,7 @@ createTime: 2026/01/01 22:26:56
 
 - **Set Class Name**: Set or modify the current class name
 - **Switch Class**: Switch between classes if you manage multiple rosters
+- **Student Count**: The list usually displays the current class student count for quick verification (subject to actual app version)
 
 ### List Import and Export
 
@@ -43,4 +44,4 @@ createTime: 2026/01/01 22:26:56
 - **Batch Modification**: Perform batch information modification through export-edit-import
 - **Data Sync**: Use backups to migrate between devices
 
-> **More Help**: If you have questions, check [FAQ](/en/faq/) or report via [GitHub Issues](https://github.com/SECTL/SecScore/issues).
+> **More Help**: If you have questions, check [FAQ](../../../faq/) or report via [GitHub Issues](https://github.com/SECTL/SecScore/issues).

@@ -21,6 +21,7 @@ const Doc = defineCollection({
       { text: '学生管理', link: 'listmg' },
       { text: '积分管理', link: 'pick' },
       { text: '理由管理', link: 'link' },
+      { text: '自动加分', link: 'auto-scoring' },
       { text: '看板', link: 'board' },
       { text: '排行榜', link: 'notification' },
       { text: '结算与历史', link: 'history' },
@@ -29,6 +30,8 @@ const Doc = defineCollection({
       { text: '系统设置', link: 'basic' },
       { text: '安全与权限', link: 'security' },
       { text: '数据导入导出', link: 'other' },
+      { text: 'PG 数据同步', link: 'postgresql' },
+      { text: 'MCP 集成', link: 'mcp' },
       { text: '自定义 URL 协议', link: 'ipc_url' },
     ] },
     { text: '资源', icon: 'carbon:document', prefix: 'resources', items: [
@@ -81,6 +84,7 @@ const EnDoc = defineCollection({
       { text: 'Students', link: 'listmg' },
       { text: 'Scoring', link: 'pick' },
       { text: 'Reasons', link: 'link' },
+      { text: 'Auto Scoring', link: 'auto-scoring' },
       { text: 'Boards', link: 'board' },
       { text: 'Leaderboard', link: 'notification' },
       { text: 'Settlement', link: 'history' },
@@ -89,6 +93,8 @@ const EnDoc = defineCollection({
       { text: 'Settings', link: 'basic' },
       { text: 'Security', link: 'security' },
       { text: 'Import & Export', link: 'other' },
+      { text: 'PostgreSQL Sync', link: 'postgresql' },
+      { text: 'MCP Integration', link: 'mcp' },
       { text: 'URL Protocol', link: 'ipc_url' },
     ] },
     { text: 'Resources', icon: 'carbon:document', prefix: 'resources', items: [

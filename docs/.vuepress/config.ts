@@ -39,8 +39,8 @@ export default defineUserConfig({
 
     llmstxt: true,
     /* 页内信息 */
-    // editLink: true,
-    // lastUpdated: true,
+    editLink: true, // 用于 editLink
+    lastUpdated: true,
     contributors: {
       mode: 'block',
     },
