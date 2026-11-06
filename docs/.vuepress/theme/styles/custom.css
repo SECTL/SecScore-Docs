@@ -191,3 +191,30 @@
   height: 1em;
   margin-left: 0.2em;
 }
+
+/* 半成品提示气泡（由 Layout.vue 脚本创建） */
+.wip-tooltip {
+  position: fixed;
+  z-index: 9999;
+  width: max-content;
+  max-width: 260px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--vp-c-bg-elv, #fff);
+  color: var(--vp-c-text-1);
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+.wip-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+}
