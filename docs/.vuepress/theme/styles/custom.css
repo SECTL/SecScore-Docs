@@ -62,8 +62,14 @@
 }
 
 /* home */
-.vp-home-doc-hero .image {
-  margin-top: 60px !important;
+.vp-home-doc-hero .name::before {
+  content: '';
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.2em;
+  vertical-align: -0.08em;
+  background: url('/SecScore.svg') center / contain no-repeat;
 }
 
 .vp-home-doc-hero .name {

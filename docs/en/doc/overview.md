@@ -26,7 +26,7 @@ SecScore is a classroom scoring manager for day-to-day student point tracking. I
 
 ## Quick Start
 
-1. Download from https://stk.sectl.top/SecScore or [GitHub Releases](https://github.com/SECTL/SecScore/releases)
+1. Download from https://stk.sectl.cn/SecScore or [GitHub Releases](https://github.com/SECTL/SecScore/releases)
 2. Import your student roster in List Management
 3. Create a few common reason presets
 4. Build a custom view in [Boards](./settings/board.md) when SQL-based analytics are needed

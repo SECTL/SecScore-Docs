@@ -17,7 +17,7 @@ const zhNavbar = defineNavbarConfig([
       { text: '开发与贡献', icon: 'carbon:document', link: '/doc/resources/contribute' },
     ],
   },
-  { text: '下载', icon: 'lucide:download', link: 'https://stk.sectl.top/SecScore' },
+  { text: '下载', icon: 'lucide:download', link: 'https://stk.sectl.cn/SecScore' },
   { text: 'GitHub', icon: 'fa-brands:github', link: 'https://github.com/SECTL/SecScore' },
 ])
 
@@ -32,7 +32,7 @@ const enNavbar = defineNavbarConfig([
       { text: 'Development', icon: 'carbon:document', link: '/en/doc/resources/contribute' },
     ],
   },
-  { text: 'Download', icon: 'lucide:download', link: 'https://stk.sectl.top/SecScore' },
+  { text: 'Download', icon: 'lucide:download', link: 'https://stk.sectl.cn/SecScore' },
   { text: 'GitHub', icon: 'fa-brands:github', link: 'https://github.com/SECTL/SecScore' },
 ])
 

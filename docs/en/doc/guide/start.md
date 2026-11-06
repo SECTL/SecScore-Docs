@@ -7,7 +7,7 @@ createTime: 2025/11/23 19:46:59
 
 ## Download
 
-- Download: https://stk.sectl.top/SecScore
+- Download: https://stk.sectl.cn/SecScore
 - GitHub Releases: https://github.com/SECTL/SecScore/releases
 
 ## Install & Launch (Windows)

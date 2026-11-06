@@ -7,12 +7,11 @@ config:
       name: SecScore
       text: Classroom Scoring
       tagline: A simple and elegant classroom personal scoring manager.
-      image: /SecScore.svg
       actions:
         - theme: brand
           text: Download
           icon: lucide:download
-          link: https://stk.sectl.top/SecScore
+          link: https://stk.sectl.cn/SecScore
         - theme: brand
           text: Read Docs
           icon: lucide:list-start
@@ -24,7 +23,7 @@ config:
         - theme: alt
           text: Sectl Official Site
           icon: fa-brands:github
-          link: https://sectl.top/
+          link: https://sectl.cn/
           
   - type: features
     features:
