@@ -3,7 +3,36 @@ import { Layout } from 'vuepress-theme-plume/client'
 import PageContextMenu from 'vuepress-theme-plume/features/PageContextMenu.vue'
 import AsideNav from './AsideNav.vue'
 import Bulletin from './Bulletin.vue'
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { useRoute } from 'vuepress/client'
+
+const STORE_KEY = 'secscore-wip-notice-dismissed'
+const route = useRoute()
+const showNotice = ref(false)
+const noMore = ref(false)
+let shownThisSession = false
+
+function isDocPage(path) {
+  return /\/doc\//.test(path)
+}
+
+function checkNotice() {
+  if (shownThisSession || !isDocPage(route.path)) return
+  try {
+    if (localStorage.getItem(STORE_KEY) === '1') return
+  } catch (e) {}
+  shownThisSession = true
+  showNotice.value = true
+}
+
+function closeNotice() {
+  showNotice.value = false
+  if (noMore.value) {
+    try { localStorage.setItem(STORE_KEY, '1') } catch (e) {}
+  }
+}
+
+watch(() => route.path, checkNotice)
 
 const TIP = '因维护者 PANDA-JSR 自身经历和能力有限，这还是一个半成品，不建议食用！'
 let tip = null
@@ -69,6 +98,7 @@ function onOut(e) {
 }
 
 onMounted(() => {
+  checkNotice()
   document.addEventListener('mouseover', onOver)
   document.addEventListener('mouseout', onOut)
   window.addEventListener('scroll', hide, true)
@@ -95,6 +125,16 @@ onBeforeUnmount(() => {
       <Bulletin />
     </template>
   </Layout>
+  <div v-if="showNotice" class="wip-modal-mask" @click.self="closeNotice">
+    <div class="wip-modal" role="dialog" aria-modal="true">
+      <h3>提示</h3>
+      <p>{{ TIP }}</p>
+      <label class="wip-modal-check">
+        <input v-model="noMore" type="checkbox" /> 不再提示
+      </label>
+      <button class="wip-modal-btn" @click="closeNotice">我知道了</button>
+    </div>
+  </div>
 </template>
 
 <style>
